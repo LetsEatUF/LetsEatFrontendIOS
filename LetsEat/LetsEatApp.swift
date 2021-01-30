@@ -11,7 +11,8 @@ import SwiftUI
 struct LetsEatApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView().onAppear(perform: {
+            let vm = ViewModel()
+            ContentView(viewModel: vm).onAppear(perform: {
                 // todo start code -- get location info, restaraunt shit etc
             })
         }

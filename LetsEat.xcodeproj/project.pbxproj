@@ -13,6 +13,8 @@
 		CFC4715925C4F545002A7282 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CFC4715825C4F545002A7282 /* Preview Assets.xcassets */; };
 		CFC4716425C4F545002A7282 /* LetsEatTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4716325C4F545002A7282 /* LetsEatTests.swift */; };
 		CFC4716F25C4F545002A7282 /* LetsEatUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4716E25C4F545002A7282 /* LetsEatUITests.swift */; };
+		CFC4718C25C5D2A2002A7282 /* LetsEatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4718B25C5D2A2002A7282 /* LetsEatModel.swift */; };
+		CFC4719125C5D58C002A7282 /* LetsEatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4719025C5D58C002A7282 /* LetsEatViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +48,8 @@
 		CFC4716E25C4F545002A7282 /* LetsEatUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsEatUITests.swift; sourceTree = "<group>"; };
 		CFC4717025C4F545002A7282 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CFC4717F25C4FAA1002A7282 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		CFC4718B25C5D2A2002A7282 /* LetsEatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsEatModel.swift; sourceTree = "<group>"; };
+		CFC4719025C5D58C002A7282 /* LetsEatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsEatViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +106,8 @@
 				CFC4715525C4F545002A7282 /* Assets.xcassets */,
 				CFC4715A25C4F545002A7282 /* Info.plist */,
 				CFC4715725C4F545002A7282 /* Preview Content */,
+				CFC4718B25C5D2A2002A7282 /* LetsEatModel.swift */,
+				CFC4719025C5D58C002A7282 /* LetsEatViewModel.swift */,
 			);
 			path = LetsEat;
 			sourceTree = "<group>";
@@ -261,8 +267,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CFC4718C25C5D2A2002A7282 /* LetsEatModel.swift in Sources */,
 				CFC4715425C4F545002A7282 /* ContentView.swift in Sources */,
 				CFC4715225C4F545002A7282 /* LetsEatApp.swift in Sources */,
+				CFC4719125C5D58C002A7282 /* LetsEatViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -421,6 +429,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LetsEat/Preview Content\"";
+				DEVELOPMENT_TEAM = VM6W4F7CSR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LetsEat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -442,6 +451,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"LetsEat/Preview Content\"";
+				DEVELOPMENT_TEAM = VM6W4F7CSR;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = LetsEat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;

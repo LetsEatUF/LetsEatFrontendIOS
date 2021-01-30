@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-// Want a VStack top?? then have image on top and then
 struct ContentView: View {
+    @ObservedObject var viewModel: ViewModel
+
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius: 10)
@@ -20,6 +21,9 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     .font(.largeTitle)
                     .fontWeight(.bold)
+                    .onTapGesture {
+                        viewModel.testRequest()
+                    }
                 
                 PlaceView()
                 
@@ -32,7 +36,6 @@ struct ContentView: View {
             
         }
         .foregroundColor(Color.green)
-        
     }
 }
 
@@ -84,6 +87,7 @@ struct MenuView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        let vm = ViewModel()
+        ContentView(viewModel: vm)
     }
 }
