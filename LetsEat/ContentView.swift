@@ -22,10 +22,10 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .onTapGesture {
-                        viewModel.testRequest()
+                        viewModel.getReccomendations(lat: 12, long: 12)
                     }
                 
-                PlaceView()
+                PlaceView(viewModel: viewModel)
                 
                 Spacer()
                 
@@ -40,13 +40,15 @@ struct ContentView: View {
 }
 
 struct PlaceView: View {
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
         ZStack {
             RoundedRectangle(cornerRadius:25.0) // BACKGROUND
                 .padding()
                 .foregroundColor(.white)
             VStack {
-                Text("Restaurant Name")
+                Text(viewModel.getSuggestionName())
                     .font(.largeTitle)
                     .bold()
                     .padding(30)

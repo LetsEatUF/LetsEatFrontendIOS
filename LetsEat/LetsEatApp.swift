@@ -13,7 +13,7 @@ struct LetsEatApp: App {
         WindowGroup {
             let vm = ViewModel()
             ContentView(viewModel: vm).onAppear(perform: {
-                // todo start code -- get location info, restaraunt shit etc
+                vm.getReccomendations(lat: vm.getLat(), long: vm.getLong())
             })
         }
     }
