@@ -20,6 +20,10 @@ struct LetsEatModel {
 
     var username: String = ""
     
+    var groupName: String = ""
+    
+    var finalDecisionTitle: String = ""
+    
     var locationManager: CLLocationManager =  CLLocationManager()
     
     func getLatitude() -> CLLocationDegrees {

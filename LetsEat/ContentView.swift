@@ -22,6 +22,9 @@ struct ContentView: View {
         else if viewModel.getIsWaitingForUsername() {
             LoginView(viewModel: viewModel)
         }
+        else if viewModel.getHasFoundMatch() {
+            SuccessView(viewModel: viewModel)
+        }
         else {
             MainView(viewModel: viewModel)
         }

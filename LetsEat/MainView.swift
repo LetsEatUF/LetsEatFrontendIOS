@@ -32,7 +32,7 @@ struct MainView: View {
                 
                 Spacer()
                 
-                MenuView()
+                MenuView(viewModel: viewModel)
                 
                 Spacer()
             }
@@ -72,6 +72,9 @@ struct PlaceView: View {
                         .bold()
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .padding(40)
+                        .onTapGesture {
+                            viewModel.submitYay()
+                        }
                     Spacer()
                     Text("Nay")
                         .bold()
@@ -88,10 +91,18 @@ struct PlaceView: View {
 }
 
 struct MenuView: View {
+    var viewModel: ViewModel
+    @State var group: String = ""
+    
     var body: some View {
         HStack {
-            Text("Menu")
-                .foregroundColor(.white)
+            TextField("Enter Username...", text: $group, onCommit: {
+                viewModel.submitGroup(groupName: group)
+            })
+            .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+            .border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+            .padding(.horizontal, 150)
         }
     }
 }
