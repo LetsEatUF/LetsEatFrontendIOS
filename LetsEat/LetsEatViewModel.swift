@@ -34,8 +34,10 @@ class ViewModel: ObservableObject {
     
     func submitLogin(username: String) {
         model.username = username
+        
+        sendLogin(username: model.username)
+        
         waitingForUsername = false
-        print(model.username)
     }
     
     // MARK - Intent: Update restaurant being suggested
@@ -63,8 +65,46 @@ class ViewModel: ObservableObject {
     
     // MARK - HTTP Requests
     let baseUrlString = "https://let-s-eat-api-gateway-d3f77p7e.ue.gateway.dev"
+    let usernameUrlString = "https://us-east1-lets-eat-303301.cloudfunctions.net/login"
     
-    // MARK - HTTP Request Functions
+    // MARK - Send Username to login
+    func sendLogin(username: String) {
+        print("Sending login.")
+        let url = URL(string: usernameUrlString)
+        
+        guard let requestUrl = url else {
+            print("Request failed, url inaccessible.")
+            return
+        }
+        
+        var request = URLRequest(url: requestUrl)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let json: [String: Any] = ["username" : model.username]
+        print("Lat: \(model.getLatitude())")
+        print("Long: \(model.getLongitude())")
+        let jsonData = try? JSONSerialization.data(withJSONObject: json)
+        request.httpBody = jsonData
+        
+        let task = URLSession.shared.dataTask(with: request) {
+            (data, response, error) in
+            
+            if let error = error {
+                print("Error \(error)")
+                return
+            }
+            if let response = response as? HTTPURLResponse {
+                print("Response HTTP Status code: \(response.statusCode)")
+            }
+            if let data = data, let dataString = String(data: data, encoding: .utf8) { // _ is dataString
+                print("Login Response: \(dataString)")
+            }
+        }
+        task.resume()
+    }
+    
+    // MARK - Get Reccomendation HTTP Request
     func getReccomendations(lat: Float, long: Float) {
         print("Getting restaurant reccomendations.")
         
