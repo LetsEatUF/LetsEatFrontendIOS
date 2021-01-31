@@ -31,18 +31,24 @@ struct LetsEatModel {
         return locationManager.location?.coordinate.longitude ?? 0
     }
     
-    var suggestionQueue: [RestaurantData] = []
+    var currentSuggestion: RestaurantData = RestaurantData()
     
-    mutating func addRestaurantToQueue(addition: RestaurantData) {
-        suggestionQueue.append(addition)
+    var suggestionQueue: Queue<RestaurantData> = Queue()
+    
+    mutating func updateSuggestion() {
+        self.currentSuggestion = suggestionQueue.dequeue() ?? RestaurantData()
     }
     
-    struct RestaurantData: Decodable {
-        let name: String
-        let address: String
-        let rating: Float32
-        let ratings: Int32
-        let price: Int32
-        let photo: String
+    mutating func addRestaurantToQueue(addition: RestaurantData) {
+        suggestionQueue.enqueue(addition)
+    }
+    
+    struct RestaurantData: Decodable { 
+        var name: String = "No suggestion available."
+        var address: String = "No address available."
+        var rating: Float32 = 0
+        var ratings: Int32 = 0
+        var price: Int32 = 0
+        var photo: String = ""
     }
 }

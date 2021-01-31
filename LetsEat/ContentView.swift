@@ -10,32 +10,42 @@ import SwiftUI
 struct ContentView: View {
     @ObservedObject var viewModel: ViewModel
 
+    init(viewModel: ViewModel) {
+        self.viewModel = viewModel
+        viewModel.startLoadingScreen()
+    }
+    
     var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 10)
-                .edgesIgnoringSafeArea(.all)
-            VStack{
-                Spacer()
-                
-                Text("Let's Eat!")
-                    .foregroundColor(.white)
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .onTapGesture {
-                        viewModel.getReccomendations(lat: 12, long: 12)
-                    }
-                
-                PlaceView(viewModel: viewModel)
-                
-                Spacer()
-                
-                MenuView()
-                
-                Spacer()
-            }
-            
+        if viewModel.getIsLoading() {
+            LoadingView()
         }
-        .foregroundColor(Color.green)
+        else {
+            ZStack {
+                RoundedRectangle(cornerRadius: 10)
+                    .edgesIgnoringSafeArea(.all)
+                VStack{
+                    Spacer()
+                    
+                    Text("Let's Eat!")
+                        .foregroundColor(.white)
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .onTapGesture {
+                            viewModel.getReccomendations(lat: 12, long: 12)
+                        }
+                    
+                    PlaceView(viewModel: viewModel)
+                    
+                    Spacer()
+                    
+                    MenuView()
+                    
+                    Spacer()
+                }
+                
+            }
+            .foregroundColor(Color.green)
+        }
     }
 }
 
@@ -58,7 +68,10 @@ struct PlaceView: View {
                     .aspectRatio(contentMode: /*@START_MENU_TOKEN@*/.fill/*@END_MENU_TOKEN@*/)
                 Spacer()
                 
-                Text("lots of info i am typing multiple lines please keep going okay good yes i agree that is very nice are you going to resize now ")
+//                Text("lots of info i am typing multiple lines please keep going okay good yes i agree that is very nice are you going to resize now ")
+//                    .padding(20)
+                
+                Text(viewModel.getAddress())
                     .padding(20)
                 
                 HStack(alignment: .bottom) { // yay or nay?
@@ -71,6 +84,9 @@ struct PlaceView: View {
                         .bold()
                         .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                         .padding(40)
+                        .onTapGesture {
+                            viewModel.updateSuggestion()
+                        }
                 }.padding()
             }
         }.padding()

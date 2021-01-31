@@ -7,16 +7,36 @@
 
 import Foundation
 import CoreLocation
+import Dispatch
 
 class ViewModel: ObservableObject {
     @Published var model: LetsEatModel = LetsEatModel()
     
+    @Published var isLoading: Bool = true
+    
+    func getIsLoading() -> Bool {
+        return isLoading
+    }
+    
+    func startLoadingScreen() { // Very hacky bad way to do this most likely
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            print("changing")
+            self.isLoading = false
+        }
+    }
+    
+    // MARK - Intent: Update restaurant being suggested
+    func updateSuggestion() {
+        model.updateSuggestion()
+    }
+    
     // MARK - Model Information for View
     func getSuggestionName() -> String {
-        if model.suggestionQueue.count == 0 {
-            return "No Suggestion Yet"
-        }
-        return model.suggestionQueue[0].name
+        model.currentSuggestion.name
+    }
+
+    func getAddress() -> String {
+        model.currentSuggestion.address
     }
     
     // MARK - Get Location Info (Might not be the right place for this)

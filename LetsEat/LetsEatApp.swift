@@ -14,6 +14,7 @@ struct LetsEatApp: App {
             let vm = ViewModel()
             ContentView(viewModel: vm).onAppear(perform: {
                 vm.getReccomendations(lat: vm.getLat(), long: vm.getLong())
+                vm.updateSuggestion()
             })
         }
     }
