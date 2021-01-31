@@ -13,9 +13,14 @@ class ViewModel: ObservableObject {
     @Published var model: LetsEatModel = LetsEatModel()
     
     @Published var isLoading: Bool = true
+    @Published var waitingForUsername: Bool = true // TODO: replace these bools with enums
     
     func getIsLoading() -> Bool {
         return isLoading
+    }
+    
+    func getIsWaitingForUsername() -> Bool {
+        return waitingForUsername
     }
     
     func startLoadingScreen() { // Very hacky bad way to do this most likely
@@ -23,6 +28,14 @@ class ViewModel: ObservableObject {
             print("changing")
             self.isLoading = false
         }
+    }
+    
+    // MARK - Intent: Username submission
+    
+    func submitLogin(username: String) {
+        model.username = username
+        waitingForUsername = false
+        print(model.username)
     }
     
     // MARK - Intent: Update restaurant being suggested

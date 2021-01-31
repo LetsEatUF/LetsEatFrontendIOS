@@ -11,15 +11,14 @@ import CoreLocation
 
 struct LetsEatModel {
     init() {
-        print("Model initializing...")
         if locationManager.authorizationStatus != CLAuthorizationStatus.authorizedWhenInUse {
             
             // Need to get the location perms
-            print("Requesting location authorization.")
             locationManager.requestWhenInUseAuthorization()
         }
-        print("Model initialized.")
     }
+
+    var username: String = ""
     
     var locationManager: CLLocationManager =  CLLocationManager()
     

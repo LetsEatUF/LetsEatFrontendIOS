@@ -17,6 +17,8 @@
 		CFC4719125C5D58C002A7282 /* LetsEatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4719025C5D58C002A7282 /* LetsEatViewModel.swift */; };
 		CFC4719925C62603002A7282 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4719825C62603002A7282 /* Queue.swift */; };
 		CFC471A625C62BDA002A7282 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC471A525C62BDA002A7282 /* LoadingView.swift */; };
+		CFC471B325C63B70002A7282 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC471B225C63B70002A7282 /* MainView.swift */; };
+		CFC471B825C63CC6002A7282 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC471B725C63CC6002A7282 /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		CFC4719025C5D58C002A7282 /* LetsEatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetsEatViewModel.swift; sourceTree = "<group>"; };
 		CFC4719825C62603002A7282 /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
 		CFC471A525C62BDA002A7282 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		CFC471B225C63B70002A7282 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		CFC471B725C63CC6002A7282 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +118,8 @@
 				CFC4719025C5D58C002A7282 /* LetsEatViewModel.swift */,
 				CFC4719825C62603002A7282 /* Queue.swift */,
 				CFC471A525C62BDA002A7282 /* LoadingView.swift */,
+				CFC471B225C63B70002A7282 /* MainView.swift */,
+				CFC471B725C63CC6002A7282 /* LoginView.swift */,
 			);
 			path = LetsEat;
 			sourceTree = "<group>";
@@ -274,10 +280,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				CFC4719925C62603002A7282 /* Queue.swift in Sources */,
+				CFC471B325C63B70002A7282 /* MainView.swift in Sources */,
 				CFC4718C25C5D2A2002A7282 /* LetsEatModel.swift in Sources */,
 				CFC4715425C4F545002A7282 /* ContentView.swift in Sources */,
 				CFC4715225C4F545002A7282 /* LetsEatApp.swift in Sources */,
 				CFC4719125C5D58C002A7282 /* LetsEatViewModel.swift in Sources */,
+				CFC471B825C63CC6002A7282 /* LoginView.swift in Sources */,
 				CFC471A625C62BDA002A7282 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
